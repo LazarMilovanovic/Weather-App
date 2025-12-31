@@ -1,0 +1,135 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+.hero {
+  display: flex;
+  filter: brightness(70%);
+  background-position: center;
+  background-size: cover;
+  padding: 20px;
+}
+.hero div {
+  display: flex;
+  flex-direction: column;
+}
+.hero strong {
+  margin: 10px 0;
+  font-size: 30px;
+}
+.hero p {
+  font-size: 24px;
+}
+.hero input {
+  width: auto;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid black;
+  background: transparent;
+  color: rgb(0, 0, 0);
+}
+.hero input::placeholder {
+  color: #000;
+}
+.hero input:hover {
+  background-color: rgb(30, 210, 255);
+}
+
+.weather__title {
+  margin: 0 10px 0 auto;
+  text-align: center;
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+  text-transform: uppercase;
+  letter-spacing: -5px;
+}
+.weather__title h1 {
+  font-size: 24px;
+}
+
+.weather {
+  padding: 10px 20px;
+  background-color: rgb(5, 100, 230);
+}
+
+.weather__results {
+  display: flex;
+  overflow: auto;
+  scrollbar-width: thin;
+  list-style: none;
+  width: 100%;
+  min-width: 200px;
+  max-width: 650px;
+  height: 200px;
+}
+.weather__results ul {
+  padding: 0 6px;
+  text-align: center;
+}
+.weather__results li {
+  font-size: 20px;
+}
+
+.hourly-time {
+  margin-bottom: 10px;
+}
+
+.hourly-temp {
+  margin-top: 20px;
+}
+.hourly-temp::before {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 600;
+  content: "\f2c9";
+}
+
+.hourly-perception {
+  margin-top: 20px;
+}
+.hourly-perception::before {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 600;
+  content: "\f043";
+}
+
+.hourly-weather-sun:after {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 600;
+  content: "\f185";
+}
+
+.hourly-weather-cloud:after {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 600;
+  content: "\f0c2";
+}
+
+.hourly-weather-rain:after {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 600;
+  content: "\f740";
+}
+
+.hourly-weather-snow:after {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 600;
+  content: "\f2dc";
+}
+
+.weakly-weather {
+  display: flex;
+  background-color: rgb(5, 100, 230);
+}
+
+.days li {
+  display: flex;
+  gap: 15px;
+}
+
+.weather-pic {
+  width: 20px;
+  height: 20px;
+}/*# sourceMappingURL=style.css.map */
