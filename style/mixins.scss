@@ -1,0 +1,10 @@
+@mixin hourly-weather-icon($margin-left, $elWidth, $elHeight, $elImg) {
+  margin-left: $margin-left;
+  text-align: center;
+  height: $elHeight;
+  width: $elWidth;
+  background-image: url($elImg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
