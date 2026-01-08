@@ -98,29 +98,29 @@
 
 // Daily/Hourly Weather results ICONS/IMG
 .hourly-weather-moon {
-  @include mixins.hourly-weather-icon(8px, 40px, 40px, "/images/moon.png");
+  @include mixins.hourly-weather-icon(8px, 40px, 40px, "images/moon.png");
 }
 
 .hourly-weather-sun {
-  @include mixins.hourly-weather-icon(8px, 40px, 40px, "/images/sunny.png");
+  @include mixins.hourly-weather-icon(8px, 40px, 40px, "images/sunny.png");
 }
 
 .hourly-weather-cloud {
-  @include mixins.hourly-weather-icon(8px, 40px, 40px, "/images/cloud.png");
+  @include mixins.hourly-weather-icon(8px, 40px, 40px, "images/cloud.png");
 }
 
 .hourly-weather-rain {
-  @include mixins.hourly-weather-icon(8px, 40px, 40px, "/images/rain.png");
+  @include mixins.hourly-weather-icon(8px, 40px, 40px, "images/rain.png");
 }
 
 .hourly-weather-snow {
-  @include mixins.hourly-weather-icon(8px, 40px, 40px, "/images/snowflake.png");
+  @include mixins.hourly-weather-icon(8px, 40px, 40px, "images/snowflake.png");
 }
 .sunrise {
-  @include mixins.hourly-weather-icon(8px, 40px, 40px, "/images/sunrise.png");
+  @include mixins.hourly-weather-icon(8px, 40px, 40px, "images/sunrise.png");
 }
 .sunset {
-  @include mixins.hourly-weather-icon(8px, 40px, 40px, "/images/sunset.png");
+  @include mixins.hourly-weather-icon(8px, 40px, 40px, "images/sunset.png");
 }
 
 // Weekly weather section
@@ -150,19 +150,19 @@
     }
 
     .sunrise {
-      @include mixins.hourly-weather-icon(15px, 30px, 30px, "/images/sunrise.png");
+      @include mixins.hourly-weather-icon(15px, 30px, 30px, "images/sunrise.png");
     }
 
     .sunset {
-      @include mixins.hourly-weather-icon(20px, 30px, 30px, "/images/sunset.png");
+      @include mixins.hourly-weather-icon(20px, 30px, 30px, "images/sunset.png");
     }
 
     .min-temp {
-      @include mixins.hourly-weather-icon(13px, 30px, 30px, "/images/cold.png");
+      @include mixins.hourly-weather-icon(13px, 30px, 30px, "images/cold.png");
     }
 
     .max-temp {
-      @include mixins.hourly-weather-icon(11px, 30px, 30px, "/images/hot.png");
+      @include mixins.hourly-weather-icon(11px, 30px, 30px, "images/hot.png");
     }
   }
 
@@ -187,19 +187,19 @@
 
 // Weekly weather ICONS/IMG
 .weekly-weather-sun {
-  @include mixins.hourly-weather-icon(0px, 30px, 30px, "/images/sunny.png");
+  @include mixins.hourly-weather-icon(0px, 30px, 30px, "images/sunny.png");
 }
 
 .weekly-weather-cloud {
-  @include mixins.hourly-weather-icon(0px, 30px, 30px, "/images/cloud.png");
+  @include mixins.hourly-weather-icon(0px, 30px, 30px, "images/cloud.png");
 }
 
 .weekly-weather-rain {
-  @include mixins.hourly-weather-icon(0px, 30px, 30px, "/images/rain.png");
+  @include mixins.hourly-weather-icon(0px, 30px, 30px, "images/rain.png");
 }
 
 .weekly-weather-snow {
-  @include mixins.hourly-weather-icon(0px, 30px, 30px, "/images/snowflake.png");
+  @include mixins.hourly-weather-icon(0px, 30px, 30px, "images/snowflake.png");
 }
 
 // Tablet view
