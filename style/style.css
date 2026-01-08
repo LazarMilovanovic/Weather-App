@@ -88,7 +88,7 @@
   text-align: center;
   height: 40px;
   width: 40px;
-  background-image: url("images/moon.png");
+  background-image: url("../images/moon.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -99,7 +99,7 @@
   text-align: center;
   height: 40px;
   width: 40px;
-  background-image: url("images/sunny.png");
+  background-image: url("../images/sunny.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -110,7 +110,7 @@
   text-align: center;
   height: 40px;
   width: 40px;
-  background-image: url("images/cloud.png");
+  background-image: url("../images/cloud.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -121,7 +121,7 @@
   text-align: center;
   height: 40px;
   width: 40px;
-  background-image: url("images/rain.png");
+  background-image: url("../images/rain.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -132,7 +132,7 @@
   text-align: center;
   height: 40px;
   width: 40px;
-  background-image: url("images/snowflake.png");
+  background-image: url("../images/snowflake.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -143,7 +143,7 @@
   text-align: center;
   height: 40px;
   width: 40px;
-  background-image: url("images/sunrise.png");
+  background-image: url("../images/sunrise.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -154,7 +154,7 @@
   text-align: center;
   height: 40px;
   width: 40px;
-  background-image: url("images/sunset.png");
+  background-image: url("../images/sunset.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -185,7 +185,7 @@
   text-align: center;
   height: 30px;
   width: 30px;
-  background-image: url("images/sunrise.png");
+  background-image: url("../images/sunrise.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -195,7 +195,7 @@
   text-align: center;
   height: 30px;
   width: 30px;
-  background-image: url("images/sunset.png");
+  background-image: url("../images/sunset.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -205,7 +205,7 @@
   text-align: center;
   height: 30px;
   width: 30px;
-  background-image: url("images/cold.png");
+  background-image: url("../images/cold.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -215,7 +215,7 @@
   text-align: center;
   height: 30px;
   width: 30px;
-  background-image: url("images/hot.png");
+  background-image: url("../images/hot.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -241,7 +241,7 @@
   text-align: center;
   height: 30px;
   width: 30px;
-  background-image: url("images/sunny.png");
+  background-image: url("../images/sunny.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -252,7 +252,7 @@
   text-align: center;
   height: 30px;
   width: 30px;
-  background-image: url("images/cloud.png");
+  background-image: url("../images/cloud.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -263,7 +263,7 @@
   text-align: center;
   height: 30px;
   width: 30px;
-  background-image: url("images/rain.png");
+  background-image: url("../images/rain.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -274,7 +274,7 @@
   text-align: center;
   height: 30px;
   width: 30px;
-  background-image: url("images/snowflake.png");
+  background-image: url("../images/snowflake.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
