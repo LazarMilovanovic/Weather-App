@@ -1,3 +1,5 @@
+@use "variables";
+
 @mixin hourly-weather-icon($margin-left, $elWidth, $elHeight, $elImg) {
   margin-left: $margin-left;
   text-align: center;
@@ -7,4 +9,21 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+@mixin text-shadow {
+  text-shadow: -1px -1px 0 variables.$black-color, 1px -1px 0 variables.$black-color, -1px 1px 0 variables.$black-color, 1px 1px 0 variables.$black-color;
+}
+
+@mixin chart-buttons($btn-content) {
+  background: transparent;
+  border: none;
+  padding: 0 5px;
+  color: variables.$white-color;
+  font-size: 20px;
+  &::after {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 600;
+    content: $btn-content;
+  }
 }
