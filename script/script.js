@@ -110,6 +110,7 @@ async function getWeatherForCity(latitude, longitude) {
       const timeNum = new Date(hourlyInfo.time[i]).getHours();
       const sunriseTime = new Date(dailyInfo.sunrise[0]).getHours();
       const sunsetTime = new Date(dailyInfo.sunset[0]).getHours();
+
       //////////////
       // sunrise //
       ////////////
@@ -125,6 +126,7 @@ async function getWeatherForCity(latitude, longitude) {
         dailySunrise.append(time, sunriseIcon);
         dailyResult.append(dailySunrise);
       }
+
       /////////////
       // sunset //
       ///////////
@@ -140,6 +142,7 @@ async function getWeatherForCity(latitude, longitude) {
         dailySunset.append(time, sunsetIcon);
         dailyResult.append(dailySunset);
       }
+
       //////////////////////////
       // Select Current Time //
       ////////////////////////

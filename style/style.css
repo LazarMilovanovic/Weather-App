@@ -57,7 +57,6 @@
 }
 
 .daily-weather__results {
-  justify-content: center;
   width: 100%;
   display: flex;
   overflow-x: auto;
