@@ -5,10 +5,17 @@ const currentTemp = document.getElementById("current-temp");
 const dailyResult = document.getElementById("daily-report");
 const weeklyWeather = document.getElementById("weekly-report");
 
+/////////////////////
+// Axios Base URL //
+///////////////////
+const wikiApi = axios.create({
+  baseURL: "https://en.wikipedia.org/api/rest_v1/page/summary/",
+});
+
 // Start Call Belgrade For Load ///////////////////////
 getWeatherForCity(44.804, 20.4651);
 currentCity.textContent = "Belgrade";
-axios.get(`https://en.wikipedia.org/api/rest_v1/page/summary/Belgrade`).then((response) => (heroSection.style.backgroundImage = `url(${response.data.originalimage.source})`));
+wikiApi.get(`Belgrade`).then((response) => (heroSection.style.backgroundImage = `url(${response.data.originalimage.source})`));
 // End Call Belgrade For Load/////////////////////////
 
 // Chart JS Variables
@@ -19,15 +26,15 @@ let currentChartIndex = 0;
 // Get City //
 /////////////
 chosenCity.onsearch = searchCity;
-
 async function searchCity() {
   const city = document.getElementById("city-input").value.trim();
 
+  if (!city) {
+    return;
+  }
+
   try {
-    const [cityName, cityPicture] = await axios.all([
-      axios.get(`https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=1`),
-      axios.get(`https://en.wikipedia.org/api/rest_v1/page/summary/${city}`),
-    ]);
+    const [cityName, cityPicture] = await Promise.all([axios.get(`https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=1`), wikiApi.get(`${city}`)]);
 
     heroSection.style.backgroundImage = `url(${cityPicture.data.originalimage.source})`;
     getWeatherForCity(cityName.data.results[0].latitude, cityName.data.results[0].longitude);
@@ -38,6 +45,7 @@ async function searchCity() {
       .join(" ");
   } catch (err) {
     console.error(err);
+    alert("The chosen city doesn’t exist");
   }
 }
 
@@ -55,10 +63,16 @@ function makeEl({ elTag, elClass, elText }) {
 // Get Weather Class Function //
 ///////////////////////////////
 function getWeatherClass(code, isDay = true) {
-  if ([0, 1].includes(code)) return isDay ? "weather-sun" : "weather-moon";
-  if ([2, 3, 45, 48].includes(code)) return "weather-cloud";
-  if ([51, 53, 55, 56, 57, 61, 63, 65, 66, 67, 80, 81, 82, 95, 96, 99].includes(code)) return "weather-rain";
+  if ([0].includes(code)) return isDay ? "weather-sun" : "weather-moon";
+  if ([1, 2, 3].includes(code)) return isDay ? "weather-partly-cloudy-sun" : "weather-partly-cloudy-moon";
+  if ([45, 48].includes(code)) return "weather-fog";
+  if ([51, 53, 55].includes(code)) return "weather-drizzle";
+  if ([56, 57].includes(code)) return "weather-freezing-drizzle";
+  if ([61, 63, 65, 66, 67].includes(code)) return "weather-rain";
   if ([71, 73, 75, 77, 85, 86].includes(code)) return "weather-snow";
+  if ([80, 81, 82].includes(code)) return "weather-rain-shower";
+  if ([95].includes(code)) return "weather-thunderstorm";
+  if ([96, 99].includes(code)) return "weather-hail";
 }
 
 ///////////////////////////////
@@ -67,7 +81,7 @@ function getWeatherClass(code, isDay = true) {
 async function getWeatherForCity(latitude, longitude) {
   try {
     const response = await axios.get(
-      `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=weather_code,sunrise,sunset,daylight_duration,sunshine_duration,uv_index_max,rain_sum,showers_sum,snowfall_sum,precipitation_sum,temperature_2m_max,temperature_2m_min,precipitation_probability_max,precipitation_probability_mean,wind_speed_10m_max&hourly=temperature_2m,rain,showers,relative_humidity_2m,dew_point_2m,apparent_temperature,precipitation_probability,precipitation,uv_index,snowfall,snow_depth,weathercode,is_day&current_weather=true&timezone=auto&forecast_days=7&utm_source=chatgpt.com`
+      `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=weather_code,sunrise,sunset,rain_sum,temperature_2m_max,temperature_2m_min,wind_speed_10m_max&hourly=temperature_2m,precipitation_probability,precipitation,weathercode,is_day&current_weather=true&timezone=auto&forecast_days=7`
     );
     console.log(response.data);
 
@@ -76,12 +90,20 @@ async function getWeatherForCity(latitude, longitude) {
     const hourlyInfo = response.data.hourly;
     const dailyInfo = response.data.daily;
 
+    ///////////////////////////////////
+    // Sunrise And Sunset Variables //
+    /////////////////////////////////
+    const sunriseTime = new Date(dailyInfo.sunrise[0]).getHours();
+    const sunsetTime = new Date(dailyInfo.sunset[0]).getHours();
+    const currentTime = new Date(currentInfo.time).getHours();
+
     //////////////////////////
     // Making daily report //
     ////////////////////////
     dailyResult.textContent = "";
     const hoursInADay = 24;
     for (let i = 0; i < hoursInADay; i++) {
+      const timeNum = new Date(hourlyInfo.time[i]).getHours();
       ////////////////////////
       // Make list Element //
       //////////////////////
@@ -100,16 +122,9 @@ async function getWeatherForCity(latitude, longitude) {
       const weatherCode = hourlyInfo.weathercode[i];
       icon.className = getWeatherClass(weatherCode, hourlyInfo.is_day[i]);
       const temp = makeEl({ elTag: "p", elClass: "hourly-temp", elText: `${hourlyInfo.temperature_2m[i]}\u00B0` });
-      const perception = makeEl({ elTag: "p", elClass: "hourly-perception", elText: ` ${hourlyInfo.precipitation_probability[i]}%` });
-      hourlyWeather.append(time, icon, temp, perception);
+      const precipitation = makeEl({ elTag: "p", elClass: "hourly-precipitation", elText: ` ${hourlyInfo.precipitation_probability[i]}%` });
+      hourlyWeather.append(time, icon, temp, precipitation);
       dailyResult.append(hourlyWeather);
-
-      ///////////////////////////////////
-      // Sunrise And Sunset Variables //
-      /////////////////////////////////
-      const timeNum = new Date(hourlyInfo.time[i]).getHours();
-      const sunriseTime = new Date(dailyInfo.sunrise[0]).getHours();
-      const sunsetTime = new Date(dailyInfo.sunset[0]).getHours();
 
       //////////////
       // sunrise //
@@ -146,18 +161,26 @@ async function getWeatherForCity(latitude, longitude) {
       //////////////////////////
       // Select Current Time //
       ////////////////////////
-      const currentTime = new Date(currentInfo.time).getHours();
       if (timeNum === currentTime) {
         hourlyWeather.className = "current-hour";
-
-        setTimeout(() => {
-          dailyResult.scrollTo({
-            left: hourlyWeather.offsetLeft - dailyResult.clientWidth / 3,
-            behavior: "smooth",
-          });
-        }, 0);
       }
     }
+
+    //////////////////////////
+    // Select Current Time //
+    ////////////////////////
+    const currentTimeWeather = document.querySelector(".current-hour");
+    const timeArr = Array.from(document.querySelectorAll(".hourly-time"));
+    const hourArr = timeArr.map((el) => Number(el.textContent.split(":")[0]));
+
+    hourArr.forEach((el) => {
+      if (el === currentTime) {
+        dailyResult.scrollTo({
+          left: currentTimeWeather.offsetLeft - dailyResult.clientWidth / 2,
+          behavior: "smooth",
+        });
+      }
+    });
 
     ///////////////////////////////
     // weekly Report Header Row //
@@ -217,7 +240,6 @@ async function getWeatherForCity(latitude, longitude) {
     const nextChartBtn = document.getElementById("chart__next");
 
     Chart.defaults.color = "#ffffff";
-    // Chart.defaults.font.size = 14;
 
     const weatherCharts = [
       {
@@ -297,9 +319,11 @@ async function getWeatherForCity(latitude, longitude) {
     }
 
     // Adding current temperature to HERO section ////////////////////////////////
-    currentTemp.textContent = `${response.data.current_weather.temperature}°C`;
+    currentTemp.textContent = `${currentInfo.temperature}°C`;
     chosenCity.value = "";
-  } catch (errot) {
+  } catch (error) {
+    dailyResult.textContent = "Failed To load Data";
+    weeklyWeather.textContent = "Failed To load Data";
     console.error(error);
   }
 }
