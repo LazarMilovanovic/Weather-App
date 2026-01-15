@@ -52,6 +52,23 @@
   @include mixins.text-shadow;
 }
 
+// BREAK SECTIONS //
+.break-sections {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  background-color: rgb(223, 223, 223);
+}
+
+// Weather-data //
+.weather-data {
+  background-color: variables.$weather-report-bg;
+  // background-position: center;
+  // background-size: cover;
+}
+
 // Daily/Hourly Weather results
 .daily-weather {
   display: flex;
@@ -59,7 +76,6 @@
   text-align: center;
   color: variables.$white-color;
   padding: 20px;
-  background-color: variables.$weather-report-bg; //blue
 }
 
 .daily-weather__results {
@@ -103,63 +119,63 @@
 
 // Weather  ICONS/IMG
 .weather-moon {
-  @include mixins.hourly-weather-icon(0px, 35px, 35px, "../images/moon.png");
+  @include mixins.hourly-weather-icon(0px, 35px, 35px, "../images/weather-icons/moon.png");
 }
 
 .weather-sun {
-  @include mixins.hourly-weather-icon(0px, 35px, 35px, "../images/sunny.png");
+  @include mixins.hourly-weather-icon(0px, 35px, 35px, "../images/weather-icons/sunny.png");
 }
 
 .weather-cloud {
-  @include mixins.hourly-weather-icon(0px, 35px, 35px, "../images/cloud.png");
+  @include mixins.hourly-weather-icon(0px, 35px, 35px, "../images/weather-icons/cloud.png");
 }
 
 .weather-rain {
-  @include mixins.hourly-weather-icon(0px, 35px, 35px, "../images/rain.png");
+  @include mixins.hourly-weather-icon(0px, 35px, 35px, "../images/weather-icons/rain.png");
 }
 
 .weather-partly-cloudy-sun {
-  @include mixins.hourly-weather-icon(0px, 35px, 35px, "../images/partly-cloudy.png");
+  @include mixins.hourly-weather-icon(0px, 35px, 35px, "../images/weather-icons/partly-cloudy.png");
 }
 
 .weather-partly-cloudy-moon {
-  @include mixins.hourly-weather-icon(0px, 35px, 35px, "../images/partly-cloudy-moon.png");
+  @include mixins.hourly-weather-icon(0px, 35px, 35px, "../images/weather-icons/partly-cloudy-moon.png");
 }
 
 .weather-snow {
-  @include mixins.hourly-weather-icon(0px, 35px, 35px, "../images/snow.png");
+  @include mixins.hourly-weather-icon(0px, 35px, 35px, "../images/weather-icons/snow.png");
 }
 
 .weather-fog {
-  @include mixins.hourly-weather-icon(0px, 35px, 35px, "../images/fog.png");
+  @include mixins.hourly-weather-icon(0px, 35px, 35px, "../images/weather-icons/fog.png");
 }
 
 .weather-drizzle {
-  @include mixins.hourly-weather-icon(0px, 35px, 35px, "../images/drizzle.png");
+  @include mixins.hourly-weather-icon(0px, 35px, 35px, "../images/weather-icons/drizzle.png");
 }
 
 .weather-freezing-drizzle {
-  @include mixins.hourly-weather-icon(0px, 35px, 35px, "../images/freezing-drizzle.png");
+  @include mixins.hourly-weather-icon(0px, 35px, 35px, "../images/weather-icons/freezing-drizzle.png");
 }
 
 .weather-thunderstorm {
-  @include mixins.hourly-weather-icon(0px, 35px, 35px, "../images/thunderstorm.png");
+  @include mixins.hourly-weather-icon(0px, 35px, 35px, "../images/weather-icons/thunderstorm.png");
 }
 
 .weather-hail {
-  @include mixins.hourly-weather-icon(0px, 35px, 35px, "../images/hail.png");
+  @include mixins.hourly-weather-icon(0px, 35px, 35px, "../images/weather-icons/hail.png");
 }
 
 .weather-rain-shower {
-  @include mixins.hourly-weather-icon(0px, 35px, 35px, "../images/rain-shower.png");
+  @include mixins.hourly-weather-icon(0px, 35px, 35px, "../images/weather-icons/rain-shower.png");
 }
 
 .sunrise {
-  @include mixins.hourly-weather-icon(0px, 35px, 35px, "../images/sunrise.png");
+  @include mixins.hourly-weather-icon(0px, 35px, 35px, "../images/weather-icons/sunrise.png");
 }
 
 .sunset {
-  @include mixins.hourly-weather-icon(0px, 35px, 35px, "../images/sunset.png");
+  @include mixins.hourly-weather-icon(0px, 35px, 35px, "../images/weather-icons/sunset.png");
 }
 
 // Weekly weather section //
@@ -169,7 +185,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: variables.$weather-report-bg; //blue
 }
 
 .weekly-weather__title {
@@ -192,16 +207,16 @@
   .header-row {
     gap: 10px;
 
-    .dayRepresentaion {
+    .dayName {
       width: 75px;
     }
 
     .min-temp {
-      @include mixins.hourly-weather-icon(0, 35px, 35px, "../images/cold.png");
+      @include mixins.hourly-weather-icon(0, 35px, 35px, "../images/weather-icons/cold.png");
     }
 
     .max-temp {
-      @include mixins.hourly-weather-icon(0, 35px, 35px, "../images/hot.png");
+      @include mixins.hourly-weather-icon(0, 35px, 35px, "../images/weather-icons/hot.png");
     }
   }
 
@@ -233,9 +248,53 @@
   @include mixins.chart-buttons("\f105");
 }
 
-// Marking current houre //
+// Marking current hour //
 .current-hour {
-  background-color: variables.$current-houre-bg; //dark blue
+  background-color: variables.$clear-white;
+}
+
+.error-msg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(84, 84, 84, 0.75); /*Transparent black*/
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+.error-msg__body {
+  color: rgb(255, 255, 255); /*White*/
+  background-color: rgb(220, 53, 69);
+  border: 3px solid rgb(185, 31, 47);
+  padding: 15px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 20px;
+}
+
+.error-msg__btn {
+  color: rgb(255, 255, 255); /*White*/
+  padding: 10px;
+  border-radius: 10px;
+  background: transparent;
+  border: 1px solid rgb(185, 31, 47);
+
+  &::after {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 600;
+    content: "\58";
+  }
+}
+
+.hide-error-msg {
+  display: none;
 }
 
 // Tablet view //
@@ -277,6 +336,9 @@
   }
 }
 @media (min-width: 1024px) {
+  // .hero {
+  //   background-position: center;
+  // }
   .daily-weather__results {
     width: 980px;
     margin: 0 auto;

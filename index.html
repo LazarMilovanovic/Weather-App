@@ -18,22 +18,32 @@
         <h1>WEATHER APP</h1>
       </section>
 
-      <section class="daily-weather">
-        <h2>Daily weather</h2>
-        <ul class="daily-weather__results" id="daily-report"></ul>
-      </section>
+      <!-- <section class="break-sections"><h2>Current weather</h2></section> -->
 
-      <section class="weekly-weather">
-        <h2 class="weekly-weather__title">Weekly weather</h2>
-        <div class="weekly-weather__forecast">
-          <ul class="forecast__results" id="weekly-report"></ul>
-          <div class="forecast__chart">
-            <button id="chart__previous" class="chart__previous" aria-label="Show previous cnart"></button>
-            <canvas id="chart"></canvas>
-            <button id="chart__next" class="chart__next" aria-label="Show next chart"></button>
+      <section class="weather-data" id="weather-data">
+        <div class="daily-weather">
+          <h2>Daily weather</h2>
+          <ul class="daily-weather__results" id="daily-report"></ul>
+        </div>
+        <div class="weekly-weather">
+          <h2 class="weekly-weather__title">Weekly weather</h2>
+          <div class="weekly-weather__forecast">
+            <ul class="forecast__results" id="weekly-report"></ul>
+            <div class="forecast__chart">
+              <button type="button" id="chart__previous" class="chart__previous" aria-label="Show previous chart"></button>
+              <canvas id="chart"></canvas>
+              <button type="button" id="chart__next" class="chart__next" aria-label="Show next chart"></button>
+            </div>
           </div>
         </div>
       </section>
+
+      <div class="error-msg" id="error-msg">
+        <div class="error-msg__body">
+          <p>The city you entered does not exist. Please check the spelling and try again</p>
+          <button type="button" class="error-msg__btn" id="error-msg__btn"></button>
+        </div>
+      </div>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

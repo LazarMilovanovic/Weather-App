@@ -29,7 +29,7 @@
   padding: 10px;
   border-radius: 10px;
   border: 2px solid rgb(25, 25, 25);
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.3);
   color: rgb(25, 25, 25);
 }
 .hero__city-info input::placeholder {
@@ -47,13 +47,25 @@
   text-shadow: -1px -1px 0 rgb(25, 25, 25), 1px -1px 0 rgb(25, 25, 25), -1px 1px 0 rgb(25, 25, 25), 1px 1px 0 rgb(25, 25, 25);
 }
 
+.break-sections {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  background-color: rgb(223, 223, 223);
+}
+
+.weather-data {
+  background-color: rgb(41, 104, 239);
+}
+
 .daily-weather {
   display: flex;
   flex-direction: column;
   text-align: center;
   color: rgb(243, 243, 243);
   padding: 20px;
-  background-color: rgb(41, 104, 239);
 }
 
 .daily-weather__results {
@@ -98,7 +110,7 @@
   text-align: center;
   height: 35px;
   width: 35px;
-  background-image: url("../images/moon.png");
+  background-image: url("../images/weather-icons/moon.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -109,7 +121,7 @@
   text-align: center;
   height: 35px;
   width: 35px;
-  background-image: url("../images/sunny.png");
+  background-image: url("../images/weather-icons/sunny.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -120,7 +132,7 @@
   text-align: center;
   height: 35px;
   width: 35px;
-  background-image: url("../images/cloud.png");
+  background-image: url("../images/weather-icons/cloud.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -131,7 +143,7 @@
   text-align: center;
   height: 35px;
   width: 35px;
-  background-image: url("../images/rain.png");
+  background-image: url("../images/weather-icons/rain.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -142,7 +154,7 @@
   text-align: center;
   height: 35px;
   width: 35px;
-  background-image: url("../images/partly-cloudy.png");
+  background-image: url("../images/weather-icons/partly-cloudy.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -153,7 +165,7 @@
   text-align: center;
   height: 35px;
   width: 35px;
-  background-image: url("../images/partly-cloudy-moon.png");
+  background-image: url("../images/weather-icons/partly-cloudy-moon.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -164,7 +176,7 @@
   text-align: center;
   height: 35px;
   width: 35px;
-  background-image: url("../images/snow.png");
+  background-image: url("../images/weather-icons/snow.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -175,7 +187,7 @@
   text-align: center;
   height: 35px;
   width: 35px;
-  background-image: url("../images/fog.png");
+  background-image: url("../images/weather-icons/fog.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -186,7 +198,7 @@
   text-align: center;
   height: 35px;
   width: 35px;
-  background-image: url("../images/drizzle.png");
+  background-image: url("../images/weather-icons/drizzle.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -197,7 +209,7 @@
   text-align: center;
   height: 35px;
   width: 35px;
-  background-image: url("../images/freezing-drizzle.png");
+  background-image: url("../images/weather-icons/freezing-drizzle.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -208,7 +220,7 @@
   text-align: center;
   height: 35px;
   width: 35px;
-  background-image: url("../images/thunderstorm.png");
+  background-image: url("../images/weather-icons/thunderstorm.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -219,7 +231,7 @@
   text-align: center;
   height: 35px;
   width: 35px;
-  background-image: url("../images/hail.png");
+  background-image: url("../images/weather-icons/hail.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -230,7 +242,7 @@
   text-align: center;
   height: 35px;
   width: 35px;
-  background-image: url("../images/rain-shower.png");
+  background-image: url("../images/weather-icons/rain-shower.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -241,7 +253,7 @@
   text-align: center;
   height: 35px;
   width: 35px;
-  background-image: url("../images/sunrise.png");
+  background-image: url("../images/weather-icons/sunrise.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -252,7 +264,7 @@
   text-align: center;
   height: 35px;
   width: 35px;
-  background-image: url("../images/sunset.png");
+  background-image: url("../images/weather-icons/sunset.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -264,7 +276,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(41, 104, 239);
 }
 
 .weekly-weather__title {
@@ -285,7 +296,7 @@
 .forecast__results .header-row {
   gap: 10px;
 }
-.forecast__results .header-row .dayRepresentaion {
+.forecast__results .header-row .dayName {
   width: 75px;
 }
 .forecast__results .header-row .min-temp {
@@ -293,7 +304,7 @@
   text-align: center;
   height: 35px;
   width: 35px;
-  background-image: url("../images/cold.png");
+  background-image: url("../images/weather-icons/cold.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -303,7 +314,7 @@
   text-align: center;
   height: 35px;
   width: 35px;
-  background-image: url("../images/hot.png");
+  background-image: url("../images/weather-icons/hot.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -350,7 +361,50 @@
 }
 
 .current-hour {
-  background-color: rgb(14, 70, 190);
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.error-msg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(84, 84, 84, 0.75); /*Transparent black*/
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+.error-msg__body {
+  color: rgb(255, 255, 255); /*White*/
+  background-color: rgb(220, 53, 69);
+  border: 3px solid rgb(185, 31, 47);
+  padding: 15px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 20px;
+}
+
+.error-msg__btn {
+  color: rgb(255, 255, 255); /*White*/
+  padding: 10px;
+  border-radius: 10px;
+  background: transparent;
+  border: 1px solid rgb(185, 31, 47);
+}
+.error-msg__btn::after {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 600;
+  content: "X";
+}
+
+.hide-error-msg {
+  display: none;
 }
 
 @media (min-width: 768px) {
